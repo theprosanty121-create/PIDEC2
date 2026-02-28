@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIDEC - Plataforma Empresarial Colombiana</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
+    header { background-color: #003366; color: white; padding: 30px 20px; text-align: center; }
+    section { padding: 30px 20px; max-width: 800px; margin: auto; }
+    h2 { color: #003366; }
+    .card { background-color: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.15);}
+    input, button { padding: 10px; margin-top: 5px; margin-bottom: 15px; width: 100%; max-width: 300px; }
+    button { background-color: #0055a5; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #003366; }
+    ul { padding-left: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PIDEC</h1>
+  <p>Plataforma Integral de Desarrollo Empresarial Colombiano</p>
+  <p><i>Fortaleciendo micro, pequeñas y medianas empresas en Colombia</i></p>
+</header>
+
+<section class="card">
+  <h2>¿Qué es PIDEC?</h2>
+  <p>PIDEC es un servicio privado diseñado para ayudar a emprendedores y empresarios colombianos a formalizar, fortalecer y expandir sus negocios. Combina asesoría legal, financiera y estratégica con herramientas digitales de seguimiento.</p>
+</section>
+
+<section class="card">
+  <h2>Problema que resuelve</h2>
+  <ul>
+    <li>Alta informalidad de negocios en Colombia.</li>
+    <li>Fracaso de emprendedores en los primeros 3 años.</li>
+    <li>Falta de educación financiera empresarial.</li>
+    <li>Dificultad para acceder a créditos e inversionistas.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Servicios que ofrece PIDEC</h2>
+  <ul>
+    <li>Formalización legal rápida ante Cámara de Comercio y DIAN.</li>
+    <li>Educación financiera: flujo de caja, impuestos y reducción de costos.</li>
+    <li>Acceso a financiamiento y conexión con inversionistas.</li>
+    <li>Expansión y escalabilidad: estrategias de crecimiento, digitalización y marketing.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>Simula tu negocio</h2>
+  <p>Ingresa los datos de tu empresa para ver un ejemplo de Score Empresarial:</p>
+  
+  <label>Tipo de negocio:</label><br>
+  <input type="text" id="tipo" placeholder="Ej: Tienda de ropa"><br>
+  
+  <label>Número de empleados:</label><br>
+  <input type="number" id="empleados" placeholder="Ej: 5"><br>
+  
+  <label>Flujo de caja mensual:</label><br>
+  <input type="number" id="flujo" placeholder="Ej: 2000000"><br>
+  
+  <button onclick="simular()">Ver resultados</button>
+
+  <div id="resultados" class="card"></div>
+</section>
+
+<section class="card">
+  <h2>Impacto esperado</h2>
+  <ul>
+    <li>Reducción de informalidad empresarial.</li>
+    <li>Aumento de productividad y empleo.</li>
+    <li>Fortalecimiento del sector privado y contribución al PIB.</li>
+    <li>Creación de una cultura de responsabilidad financiera en los emprendedores.</li>
+  </ul>
+</section>
+
+<script>
+function simular() {
+  let tipo = document.getElementById('tipo').value;
+  let empleados = parseInt(document.getElementById('empleados').value) || 0;
+  let flujo = parseInt(document.getElementById('flujo').value) || 0;
+
+  // Score simple de ejemplo
+  let score = Math.min(100, (flujo/100000)*10 + empleados*5);
+
+  document.getElementById('resultados').innerHTML =
+    `<h3>Resultados de tu simulación</h3>
+     <p>Tipo de negocio: <b>${tipo}</b></p>
+     <p>Score Empresarial: <b>${Math.round(score)}/100</b></p>
+     <p>Recomendaciones:</p>
+     <ul>
+       <li>Formaliza tu negocio ante la Cámara de Comercio.</li>
+       <li>Capacítate en finanzas básicas y marketing.</li>
+       <li>Considera acceso a créditos y mentorías.</li>
+     </ul>`;
+}
+</script>
+
+</body>
+</html>
